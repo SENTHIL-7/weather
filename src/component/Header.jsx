@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import '../styles/Header.css';
 import {ThemeContext} from '../providers/Provider'
 
-export default function Header({data ,handleData ,error,handleError, isLoading ,handleIsLoading}){
+export default function Header({handleData ,handleError,handleIsLoading}){
     const [ search , setSearch] = useState('tirunelveli');
     function handleSearch(value){
         setSearch(value)
@@ -17,9 +17,9 @@ export default function Header({data ,handleData ,error,handleError, isLoading ,
      return (
         <>
         <div className="header">
-        <ToggleButton />
+        {/* <ToggleButton /> */}
         <SearchBar search={search} handleSearch={handleSearch} handleSubmit={handleSubmit}/>
-        <CurrentLocation />
+        {/* <CurrentLocation /> */}
         </div>
         </>
      )

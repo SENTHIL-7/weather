@@ -3,6 +3,7 @@
       display: flex;
       justify-content: space-evenly;
       align-items: center;
+      margin: 30px auto 30px;
  }
  /* toggle button style */
  .switch {
@@ -91,6 +92,7 @@
     #input_img {
         width:30px;
         height:30px;
+        cursor: pointer;
     }
 
     /* current location style */
@@ -103,6 +105,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        cursor: pointer;
     }
     .location-btn .icon{
         width: 20px;

@@ -1,12 +1,19 @@
 import Headers from './Header'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {ThemeContext} from '../providers/Provider'
+import Wheather from './Weather';
+import {FORECAST} from '../constant/api.constant'
 
 export default function Layout() {
     const [theme, setTheme] = useState('dark');
-    const [ data , setData] = useState(null );
+    const [ data , setData] = useState(FORECAST);
     const [ error , setError] = useState(null );
     const [ isLoading , setIsLoading] = useState(null );
+    // useEffect(()=>{
+    //     // console.log('FORECAST',FORECAST)
+    //     // console.log('data asdwefew',data)
+    //     // setData(FORECAST)
+    // },[theme])
     const toggleTheme = () => {
         setTheme(theme === 'dark' ? 'light' : 'dark');
     };
@@ -23,7 +30,8 @@ export default function Layout() {
 }
     return (<>
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-    <Headers value={{data ,handleData ,error,handleError, isLoading ,handleIsLoading}} />
+    <Headers data={data} handleData={handleData} handleError={handleError} handleIsLoading={handleIsLoading} />
+    <Wheather data={data}></Wheather>
     </ThemeContext.Provider>
     </>
     )
