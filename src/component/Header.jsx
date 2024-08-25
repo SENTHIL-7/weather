@@ -1,15 +1,30 @@
 import { useContext, useEffect, useState } from "react";
 import '../styles/Header.css';
 import {ThemeContext} from '../providers/Provider'
+import axios from '../axios';
+import {API_KEY} from '../constant/api.constant'
 
 export default function Header({handleData ,handleError,handleIsLoading}){
-    const [ search , setSearch] = useState('tirunelveli');
-    function handleSearch(value){
+    const [ search , setSearch] = useState('New York');
+    function handleSearch(value){ 
         setSearch(value)
     }
     function handleSubmit(){
         console.log('search value',search)
+        getWeatherData()
 // call api
+    }
+
+    async function getWeatherData(){
+        const response = await axios.get(`forecast?access_key=${API_KEY}&query=${search}`)
+        console.log('response',response)
+        if(response.data.error){
+            handleError(response.data.error)
+        }
+        else if(response.data){
+            console.log('success',response.data)
+            handleData(response.data)
+        }
     }
     useEffect(()=>{
 //TODO write hear the axios or react query for getting wheather value
@@ -64,3 +79,4 @@ function CurrentLocation(){
     <div>Current Location</div></button>
    )
 }
+

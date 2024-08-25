@@ -16,7 +16,7 @@ export default function Wheather({ data }) {
             <div className='weather-inner-box' >
                 <div className="time card">
                     <div className='title'>
-                        {data?.location?.region}
+                        {data?.location?.name}
                     </div>
                     {/* <div>{data?.location?.localtime}</div> */}
                     <div className='current-time'>{time}</div>

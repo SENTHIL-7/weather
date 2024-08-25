@@ -42,7 +42,7 @@ export const API_RESPONSE= {
 
 export const API_BASE_URL="https://api.weatherstack.com/"
 
-export const API_KEY = "08ff0a0e94acbd92b8c21ca8ba5eb582";
+export const API_KEY = "22d012ffdbc8917762ec4c73561039b7";
 
 export const FORECAST ={
     "request": {
@@ -141,6 +141,69 @@ export const FORECAST ={
                 // {   "time": "600", ...   },
                 // 6 more items
             ]
+        }
+    }
+}
+
+
+export const DEMO_RESPONSE={
+    "request": {
+        "type": "City",
+        "query": "Tiruchendur, India",
+        "language": "en",
+        "unit": "m"
+    },
+    "location": {
+        "name": "Tiruchendur",
+        "country": "India",
+        "region": "Tamil Nadu",
+        "lat": "8.483",
+        "lon": "78.117",
+        "timezone_id": "Asia/Kolkata",
+        "localtime": "2024-08-25 16:49",
+        "localtime_epoch": 1724604540,
+        "utc_offset": "5.50"
+    },
+    "current": {
+        "observation_time": "11:19 AM",
+        "temperature": 34,
+        "weather_code": 113,
+        "weather_icons": [
+            "https://cdn.worldweatheronline.com/images/wsymbols01_png_64/wsymbol_0001_sunny.png"
+        ],
+        "weather_descriptions": [
+            "Sunny"
+        ],
+        "wind_speed": 30,
+        "wind_degree": 284,
+        "wind_dir": "WNW",
+        "pressure": 1006,
+        "precip": 0,
+        "humidity": 42,
+        "cloudcover": 8,
+        "feelslike": 37,
+        "uv_index": 8,
+        "visibility": 10,
+        "is_day": "yes"
+    },
+    "forecast": {
+        "2024-08-24": {
+            "date": "2024-08-24",
+            "date_epoch": 1724457600,
+            "astro": {
+                "sunrise": "06:09 AM",
+                "sunset": "06:30 PM",
+                "moonrise": "10:19 PM",
+                "moonset": "10:13 AM",
+                "moon_phase": "Waning Gibbous",
+                "moon_illumination": 76
+            },
+            "mintemp": 27,
+            "maxtemp": 34,
+            "avgtemp": 30,
+            "totalsnow": 0,
+            "sunhour": 12.2,
+            "uv_index": 8
         }
     }
 }
