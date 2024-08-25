@@ -60,12 +60,18 @@ function ToggleButton() {
 
 function SearchBar ({search , handleSearch ,handleSubmit}){
     function handleSearchEvent(e){
-         handleSearch(e.target.value)
+        handleSearch(e.target.value)
     };
+    function handleKeyDown(event){
+        console.log('Enter pressed:',event);
+         if (event?.key === 'Enter') {
+            handleSubmit()
+          }
+    }
    return (
     <>
     <div id="input_container">
-    <input type="text" id="input" value={search} onChange={handleSearchEvent} />
+    <input type="text" id="input" value={search} onChange={handleSearchEvent}  onKeyDown={handleKeyDown} />
     <img src="https://img.icons8.com/?size=100&id=132&format=png&color=000000" onClick={()=>handleSubmit()} id="input_img"/>
     </div>
     </>
