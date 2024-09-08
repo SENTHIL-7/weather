@@ -5,8 +5,6 @@ export default function Wheather({ data }) {
     const [formattedData, setFormattedData] = useState(null)
     const [time, setTime] = useState(null)
 
-    // console.log('data',data)
-    // let formattedData ;
     useEffect(() => {
         setFormattedData(convertDate(data?.location?.localtime)?.formatedData);
         setTime(convertDate(data?.location?.localtime)?.time);

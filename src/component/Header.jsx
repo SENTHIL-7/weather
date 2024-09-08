@@ -10,21 +10,24 @@ export default function Header({handleData ,handleError,handleIsLoading}){
         setSearch(value)
     }
     function handleSubmit(){
-        console.log('search value',search)
         getWeatherData()
 // call api
     }
+    function onIsLoading(isLoading){
+        handleIsLoading(isLoading)
+    }
 
     async function getWeatherData(){
+        onIsLoading(true)
         const response = await axios.get(`forecast?access_key=${API_KEY}&query=${search}`)
-        console.log('response',response)
         if(response.data.error){
             handleError(response.data.error)
         }
         else if(response.data){
-            console.log('success',response.data)
             handleData(response.data)
+            handleError(null)
         }
+        onIsLoading(false)
     }
     useEffect(()=>{
 //TODO write hear the axios or react query for getting wheather value
@@ -63,7 +66,6 @@ function SearchBar ({search , handleSearch ,handleSubmit}){
         handleSearch(e.target.value)
     };
     function handleKeyDown(event){
-        console.log('Enter pressed:',event);
          if (event?.key === 'Enter') {
             handleSubmit()
           }

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import {ThemeContext} from '../providers/Provider'
 import Wheather from './Weather';
 import {FORECAST} from '../constant/api.constant'
-
+import '../styles/Layout.css'
 export default function Layout() {
     const [theme, setTheme] = useState('dark');
     const [ data , setData] = useState(FORECAST);
@@ -31,7 +31,7 @@ export default function Layout() {
     return (<>
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
     <Headers data={data} handleData={handleData} handleError={handleError} handleIsLoading={handleIsLoading} />
-    <Wheather data={data}></Wheather>
+    {error?<h1 className='no-data'>no data found </h1>:isLoading ? <h1 className='no-data'>Loading ...</h1>:<Wheather data={data}></Wheather>}
     </ThemeContext.Provider>
     </>
     )
