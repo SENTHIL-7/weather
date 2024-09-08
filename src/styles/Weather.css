@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 .wheather-container{
-    /* width:100%; */
     padding: 20px;
     display: flex;
     flex-direction: column;
